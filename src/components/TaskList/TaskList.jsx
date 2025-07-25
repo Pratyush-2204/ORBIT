@@ -4,7 +4,7 @@ import NewTask from "./NewTask";
 import CompleteTask from "./CompleteTask";
 import FailedTask from "./FailedTask";
 
-const TaskList = ({data}) => {
+const TaskList = ({data, onTaskUpdate}) => {
   // console.log(data);
   return (
     <div
@@ -17,16 +17,16 @@ const TaskList = ({data}) => {
         
 
         if (elem.active) {
-          return <AcceptTask key={idx} data={elem} />
+          return <AcceptTask key={`${elem.taskTitle}-${idx}`} data={elem} onTaskUpdate={onTaskUpdate} />
         }
         if (elem.newTask) {
-          return <NewTask key={idx} data={elem} />
+          return <NewTask key={`${elem.taskTitle}-${idx}`} data={elem} onTaskUpdate={onTaskUpdate} />
         }
         if (elem.completed) {
-          return <CompleteTask key={idx} data={elem} />
+          return <CompleteTask key={`${elem.taskTitle}-${idx}`} data={elem} />
         }
         if (elem.failed) {
-          return <FailedTask key={idx} data={elem} />
+          return <FailedTask key={`${elem.taskTitle}-${idx}`} data={elem} />
         }
         return null
 

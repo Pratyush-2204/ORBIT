@@ -139,7 +139,7 @@ const EmployeeDashboard = (props) => {
                 ({employeeData.tasks?.length || 0} total)
               </span>
             </h2>
-            <TaskList data={employeeData}/>
+            <TaskList data={employeeData} onTaskUpdate={setEmployeeData}/>
           </div>
         </div>
       </div>
